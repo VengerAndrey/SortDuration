@@ -10,14 +10,12 @@ namespace SortDuration
 {
     class SortableArray
     {
-        private int head_size;
         public int[] arr;
         private readonly Random r = new Random();
 
         public SortableArray(int size)
         {
             arr = new int[size];
-            head_size = size;
         }
 
         public void FillRandomly()

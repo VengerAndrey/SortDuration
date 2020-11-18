@@ -12,10 +12,11 @@ namespace SortDuration
 {
     public partial class Form1 : Form
     {
-        private int size = 1;
-        private int alreadyAdded = 0;
+        private int _size = 1;
 
         private SortableArray _array;
+
+        private SortableArray _lastData;
 
         public Form1()
         {
@@ -26,8 +27,8 @@ namespace SortDuration
         {
             try
             {
-                size = Convert.ToInt32(textBox1.Text);
-                if (size <= 0)
+                _size = Convert.ToInt32(textBox1.Text);
+                if (_size <= 0)
                     throw new Exception();
             }
             catch (Exception)
@@ -39,16 +40,16 @@ namespace SortDuration
             Enabled = false;
 
             dataGridView1.Rows.Clear();
-            progressBar1.Maximum = size;
+            progressBar1.Maximum = _size;
 
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < _size; i++)
             {
                 dataGridView1.Rows.Add();
                 dataGridView1.Rows[i].HeaderCell.Value = $"{i + 1}";
                 progressBar1.Value++;
             }
 
-            labelSize.Text = $"Size: {size}";
+            labelSize.Text = $"Size: {_size}";
 
             progressBar1.Value = 0;
 
@@ -57,20 +58,22 @@ namespace SortDuration
 
         private void buttonFill_Click(object sender, EventArgs e)
         {
-            _array = new SortableArray(size);
+            _array = new SortableArray(_size);
             _array.FillRandomly();
-            labelMedium.Text = $"Medium: {Sorts.Find(_array.arr, _array.arr.Length / 2)}";
-            FillData();
+            labelMedium.Text = $"Medium: {Sorts.Find(_array.Arr, _array.Arr.Length / 2)}";
+            FillData(_array);
+            _lastData = new SortableArray(_array.Arr.Length);
+            Array.Copy(_array.Arr, _lastData.Arr, _array.Arr.Length);
         }
 
-        private void FillData()
+        private void FillData(SortableArray arr)
         {
-            if(_array == null)
+            if(arr == null)
                 return;
 
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < _size; i++)
             {
-                dataGridView1.Rows[i].Cells[0].Value = _array.arr[i].ToString();
+                dataGridView1.Rows[i].Cells[0].Value = arr.Arr[i].ToString();
             }
         }
 
@@ -79,7 +82,7 @@ namespace SortDuration
             if (_array == null)
                 return;
             labelSort1.Text = _array.SortWithDuration(Sorts.QuickSort).ToString() + " ms";
-            FillData();
+            FillData(_array);
         }
 
         private void buttonSort2_Click(object sender, EventArgs e)
@@ -87,7 +90,7 @@ namespace SortDuration
             if (_array == null)
                 return;
             labelSort2.Text = _array.SortWithDuration(Sorts.PyramidSort).ToString() + " ms";
-            FillData();
+            FillData(_array);
         }
 
         private void buttonSort3_Click(object sender, EventArgs e)
@@ -95,7 +98,15 @@ namespace SortDuration
             if (_array == null)
                 return;
             labelSort3.Text = _array.SortWithDuration(Sorts.MergeSort).ToString() + " ms";
-            FillData();
+            FillData(_array);
+        }
+
+        private void buttonLastData_Click(object sender, EventArgs e)
+        {
+            if(_array == null)
+                return;
+            FillData(_lastData);
+            labelMedium.Text = $"Medium: {Sorts.Find(_lastData.Arr, _lastData.Arr.Length / 2)}";
         }
     }
 }

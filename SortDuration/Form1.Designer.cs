@@ -49,6 +49,7 @@ namespace SortDuration
             this.labelSort2 = new System.Windows.Forms.Label();
             this.labelSort3 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.buttonLastData = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -108,6 +109,7 @@ namespace SortDuration
             this.flowLayoutPanel3.Controls.Add(this.textBox1);
             this.flowLayoutPanel3.Controls.Add(this.buttonAdd);
             this.flowLayoutPanel3.Controls.Add(this.buttonFill);
+            this.flowLayoutPanel3.Controls.Add(this.buttonLastData);
             this.flowLayoutPanel3.Controls.Add(this.labelMedium);
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(240, 3);
@@ -121,7 +123,7 @@ namespace SortDuration
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(197, 20);
             this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "10000";
+            this.textBox1.Text = "100000";
             // 
             // buttonAdd
             // 
@@ -145,7 +147,7 @@ namespace SortDuration
             // 
             // labelMedium
             // 
-            this.labelMedium.Location = new System.Drawing.Point(3, 84);
+            this.labelMedium.Location = new System.Drawing.Point(3, 113);
             this.labelMedium.Name = "labelMedium";
             this.labelMedium.Size = new System.Drawing.Size(197, 23);
             this.labelMedium.TabIndex = 4;
@@ -219,7 +221,7 @@ namespace SortDuration
             this.labelSort1.Name = "labelSort1";
             this.labelSort1.Size = new System.Drawing.Size(141, 27);
             this.labelSort1.TabIndex = 3;
-            this.labelSort1.Text = "Sort1 time";
+            this.labelSort1.Text = "0 ms";
             this.labelSort1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelSort2
@@ -228,7 +230,7 @@ namespace SortDuration
             this.labelSort2.Name = "labelSort2";
             this.labelSort2.Size = new System.Drawing.Size(141, 23);
             this.labelSort2.TabIndex = 4;
-            this.labelSort2.Text = "Sort2 time";
+            this.labelSort2.Text = "0 ms";
             this.labelSort2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelSort3
@@ -237,7 +239,7 @@ namespace SortDuration
             this.labelSort3.Name = "labelSort3";
             this.labelSort3.Size = new System.Drawing.Size(141, 23);
             this.labelSort3.TabIndex = 5;
-            this.labelSort3.Text = "Sort3 time";
+            this.labelSort3.Text = "0 ms";
             this.labelSort3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // progressBar1
@@ -247,6 +249,16 @@ namespace SortDuration
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(723, 23);
             this.progressBar1.TabIndex = 1;
+            // 
+            // buttonLastData
+            // 
+            this.buttonLastData.Location = new System.Drawing.Point(3, 87);
+            this.buttonLastData.Name = "buttonLastData";
+            this.buttonLastData.Size = new System.Drawing.Size(197, 23);
+            this.buttonLastData.TabIndex = 6;
+            this.buttonLastData.Text = "Last data";
+            this.buttonLastData.UseVisualStyleBackColor = true;
+            this.buttonLastData.Click += new System.EventHandler(this.buttonLastData_Click);
             // 
             // Form1
             // 
@@ -290,6 +302,7 @@ namespace SortDuration
         private System.Windows.Forms.ProgressBar progressBar1;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Column1;
+        private Button buttonLastData;
     }
 }
 
