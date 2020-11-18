@@ -10,19 +10,19 @@ namespace SortDuration
 {
     class SortableArray
     {
-        public int[] arr;
+        public int[] Arr;
         private readonly Random r = new Random();
 
         public SortableArray(int size)
         {
-            arr = new int[size];
+            Arr = new int[size];
         }
 
         public void FillRandomly()
         {
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < Arr.Length; i++)
             {
-                arr[i] = r.Next(-1000, 1001);
+                Arr[i] = r.Next(-1000, 1001);
             }
         }
 
@@ -31,7 +31,7 @@ namespace SortDuration
             var stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            sort(arr);
+            sort(Arr);
 
             stopwatch.Stop();
 

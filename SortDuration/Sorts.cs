@@ -8,7 +8,7 @@ namespace SortDuration
 {
     class Sorts
     {
-        private static readonly Random r = new Random();
+        private static readonly Random random = new Random();
 
         public static void QuickSort(int[] arr)
         {
@@ -19,7 +19,7 @@ namespace SortDuration
         {
             if (start != finish)
             {
-                int ind = r.Next(start, finish);
+                int ind = random.Next(start, finish);
                 int item = arr[ind];
                 int ind1 = start, ind2 = finish;
                 int temp;
